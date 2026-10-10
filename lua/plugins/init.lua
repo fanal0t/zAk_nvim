@@ -95,7 +95,7 @@ return {
   -- Emmet (разворачивание div.hero -> <div class="hero">)
   {
     "mattn/emmet-vim",
-    ft = { "html", "css", "javascript", "typescript", "vue", "svelte" },
+    ft = { "html", "css", "scss", "less", "javascript", "typescript", "vue", "svelte" },
     init = function()
       vim.g.user_emmet_leader_key = '<C-y>'
       vim.g.user_emmet_install_global = 0

@@ -9,7 +9,7 @@ local function config()
     "clangd",
     "pyright",
     "html",
-    "css",
+    "cssls",
     "marksman"
   }
 
