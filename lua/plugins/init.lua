@@ -59,9 +59,9 @@ return {
       "MunifTanjim/nui.nvim",
       "nvim-tree/nvim-web-devicons", -- optional, but recommended
     },
-    lazy = false, -- neo-tree will lazily load itself
+    lazy = false,                    -- neo-tree will lazily load itself
   },
-  { --Neogit 
+  {                                  --Neogit
     "NeogitOrg/neogit",
     lazy = true,
     dependencies = {
@@ -82,6 +82,24 @@ return {
     }
   },
   { --cmake-tools
-    'Civitasv/cmake-tools.nvim', opts = {} 
+    'Civitasv/cmake-tools.nvim', opts = {}
+  },
+  -- Автозакрытие HTML/XML тегов через treesitter
+  {
+    "windwp/nvim-ts-autotag",
+    event = "InsertEnter",
+    config = function()
+      require("nvim-ts-autotag").setup()
+    end,
+  },
+  -- Emmet (разворачивание div.hero -> <div class="hero">)
+  {
+    "mattn/emmet-vim",
+    ft = { "html", "css", "javascript", "typescript", "vue", "svelte" },
+    init = function()
+      vim.g.user_emmet_leader_key = '<C-y>'
+      vim.g.user_emmet_install_global = 0
+      vim.cmd([[autocmd FileType html,css,javascript EmmetInstall]])
+    end,
   },
 }

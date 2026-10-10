@@ -4,10 +4,13 @@ local function config()
   -- Specify the config filenames to set up language servers (NOT the Mason package name)
   -- See available filenames: https://github.com/neovim/nvim-lspconfig/tree/master/lsp
   local servers = {
-     "lua_ls",
-     "basedpyright",
+    "lua_ls",
+    "basedpyright",
     "clangd",
-    "python"
+    "pyright",
+    "html",
+    "css",
+    "marksman"
   }
 
   -- Override the default configuration for specific language servers

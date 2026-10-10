@@ -40,8 +40,13 @@ map({ "n", "x" }, "<C-s>", function()
 end, { desc = "Buffer Save" })
 
 -- terminal
-map("t", "<Esc>", "<C-\\><C-n><Plug>(TermEsc)", { desc = "Terminal Switch to Normal Mode" })
-map("n", "<Plug>(TermEsc)<Esc>", "i<Esc>", { desc = "Terminal Send Esc" })
+-- 1. Выход из терминала в Normal mode (мгновенно, без задержки на Alt)
+map("t", "<Esc>", "<C-\\><C-n>", { nowait = true, silent = true, desc = "Terminal: Exit to Normal Mode" })
+
+-- 2. Отправка настоящего Esc в терминал (двойной Esc)
+map("t", "<Esc><Esc>", "<Esc>", { nowait = true, silent = true, desc = "Terminal: Send real Esc" })
+
+-- 3. Быстрое открытие терминала (оставляем как было, это работает отлично)
 map("n", "<A-i>", "<cmd>terminal<CR><cmd>startinsert<CR>", { desc = "Terminal Open" })
 
 -- option
